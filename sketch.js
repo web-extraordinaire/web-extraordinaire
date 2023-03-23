@@ -1,5 +1,7 @@
+let x = 0;
+
 function setup() {
-  background(100);
+  background(500);
 }
 
 function draw() {
