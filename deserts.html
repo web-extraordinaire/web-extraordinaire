@@ -4,19 +4,22 @@
 <script>
   let x = 100;
     function setup () {
+      
      createCanvas(1000,1000)
     }
   function draw () {
-  
+  background(220);
   ellipse(x,300,100,100);
-  
-  line(x,150,x,300);
+  line(x,500,x,350);
   line(x+20,350,x,400);
   line(x-20,350,x,400);
   line(x+20,550,x,500);
   line(x-20,550,x,500);
+    text("desserts",x,350)
     x = x + 1;
   }
+  
+
     </script>
     </head>
   <body>
