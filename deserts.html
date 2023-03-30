@@ -4,22 +4,16 @@
     <script src="functions.js"></script>
 <script>
   let x = 100;
-    function setup () {
-      
-     createCanvas(1000,1000)
-    }
+  function setup () {    
+      createCanvas(400,400)
+  }
   function draw () {
-  background(220);
-  ellipse(x,100,100,100);
-  line(x,300,x,350);
-  line(x+20,150,x,200);
-  line(x-20,150,x,200);
-  line(x+20,350,x,300);
-  line(x-20,350,x,300);
-    text("desserts",x,350)
-    x = x + 1;
-    
-    drawMediumPerson(x+30)
+      background(220);
+      drawMediumPerson(x);
+      x = x + 1;
+    if (x === 450) {
+    x = -50
+    }
   }
   
 
