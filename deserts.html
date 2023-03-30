@@ -5,15 +5,13 @@
 <script>
   let x = 100;
   function setup () {    
-      createCanvas(400,400)
+      createCanvas(1000,1000)
   }
   function draw () {
       background(220);
-      drawMediumPerson(x,"desserts");
-      x = x + 1;
-    if (x === 450) {
-    x = -50
-    }
+      drawMediumPerson(mouseX,mounseY,"desserts");
+   
+    
   }
   
 
