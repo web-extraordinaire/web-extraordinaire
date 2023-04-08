@@ -3,9 +3,20 @@
      <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
     <script src="functions.js"></script>
 <script>
-    
-    
-    
+    function setup() {    
+        bg = loadImage('https://www.exoticca.com/uk/magazine/wp-content/uploads/2021/06/matterhorn-BLOG-mountains.png');
+          createCanvas(690,360);
+    }
+  function draw() {
+        background(bg);
+    drawSmallPerson(300,300,"here I go");
+     ellipse(350,250,26,26);
+        line(350,290,350,263);
+        line(340,265,350,273);
+        line(360,265,350,273);
+        line(360,300,350,288);
+        line(340,300,350,288);
+  }
     </script>
     <title>Web Extraordinare!</title>
   </head>
