@@ -1,5 +1,44 @@
 <html>
   <head>
+    
+    
+              <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+    <script src="functions.js"></script>
+   <script> 
+     let x = 200
+     let y = 300
+   function setup() {
+        bg = loadImage('https://images.pexels.com/photos/2438/nature-forest-waves-trees.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+      createCanvas(500,375)
+     
+     
+     }
+     
+     function draw() {
+       background(bg);
+            if (y === 125) {
+         x=x-1
+         y=126;                                ellipse(x+50,y,60,35);
+
+       } else if (y>127) {   
+         ellipse(x+50,y,35,60);
+}
+        drawSmallPerson(x,y,"riding the rapids");
+
+  
+       if (x === 190 ) {
+         x = -100
+
+       } 
+     y=y-1;
+
+       }
+       
+
+     
+    
+    
+    </script>
     <title>Web Extraordinare!</title>
   </head>
   <body>
