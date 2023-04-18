@@ -15,6 +15,6 @@ function drawSmallPerson(x,y,word) {
         line(x+60,y-35,x+50,y-27);
         line(x+60,y,x+50,y-12);
         line(x+40,y,x+50,y-12);
-  text(word,x y+ 30);
+  text(word,x, y+ 30);
 
 }
