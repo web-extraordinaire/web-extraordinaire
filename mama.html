@@ -1,0 +1,55 @@
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+    <script>
+    let x = 100;
+let y = 100;
+let g = 0;
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+
+  background(220);
+  ellipse(x,100,10,10);
+
+  if (y===100) {
+      line(x,115,x+20,100)
+
+ line(x,115,x-20,100)
+    y = 110;
+  } else {
+    
+          line(x,115,x+20,120)
+
+ line(x,115,x-20,120)
+    y = 100
+  } 
+    line(x,140,x+10,155)
+
+    line(x,105,x,140)
+ 
+  line(x,140,x-10,155)
+  text("go mama your the best",x-50,75);
+x=x+1;
+  frameRate(10)
+
+}</script>
+<style>
+</style>
+
+</head>
+<body>
+<h1>
+amezing mom
+</h1>
+<p>so this mom is the best mom in the world beacause...</p>
+<ul>
+<li>she is the absulute best/amezing</li>
+<li>everyone says so<.li>
+<li> and so much more it is impossible to do it all</li>
+</ul>
+</body>
+
+</html>
