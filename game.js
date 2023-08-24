@@ -1,4 +1,8 @@
-var y = 390;
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+    <script src="functions.js"></script>
+<script>var y = 390;
 var x = 10;
 var moveX = 30;
 moveY = 390;
@@ -189,8 +193,14 @@ if(moveX > 390 & x> 100 & y > 380 || moveXtop > 270 & x > 100 & y < 360 ) { // d
   // title screen
   
   textSize(100)
-   text("play",100,200) 
+           text("play",100,200) 
 
-  rect(x,390,10,10);
+  rect(x,390,10,10);)</script>
+  </head>
+  <body></body>
+  </html>
+
+
+   
  
 }
