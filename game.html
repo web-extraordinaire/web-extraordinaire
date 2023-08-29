@@ -3,10 +3,11 @@
    <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
     <script src="functions.js"></script>
 <script>
-  var y = 390;
+var y = 390;
 var x = 10;
+
 var moveX = 30;
-moveY = 390;
+var moveY = 390;
 function setup() {
 
   createCanvas(400, 400);
@@ -64,6 +65,11 @@ if (mouseX < 300 & mouseX > 100 & mouseY <200 & mouseY > 100 & mouseIsPressed ) 
          
           line(80,340,110,360)
         line(130,340,110,360)
+        
+        moving spike (X posistion)
+        
+         line(moveX,400,moveX+10,380)
+          line(moveX + 20,400,moveX+10,380)
          
          */
          
@@ -118,6 +124,68 @@ text("you ded", 0,100)
             moveX++;
             moveXtop++;
             
+            if (x > 400) {
+              // level 5
+              x = 10;
+              moveY= 360
+              draw = function() {
+                
+                moveY++;
+                if ( mouseIsPressed  ) {
+       x=x+2;
+    }
+    if (mouseX < x) {
+      x=x-1;
+    }
+  if (keyCode === UP_ARROW) {
+  y = 350;
+  }
+    if (keyCode === DOWN_ARROW) {
+      y = 390;
+    }
+                  if (moveY > 400) {
+                  moveY = 330
+                }
+   if (x>200 & x < 220 & y > (moveY - 10) & y < (moveY + 10) ) {
+     // ded 
+     draw = function() {
+       background(220)
+     textSize(100)
+     text("you ded",0,200)
+     }
+   }
+                if(x > 400) {
+                  x = 10;
+                  draw = function() {
+    if ( mouseIsPressed  ) {
+       x=x+2;
+    }
+    if (mouseX < x) {
+      x=x-1;
+    }
+  if (keyCode === UP_ARROW) {
+  y = 350;
+  }
+    if (keyCode === DOWN_ARROW) {
+      y = 390;
+    }
+                background(220)
+                line (0,340,400,340);
+                rect(x,y,10,10)
+                    text("thanks for playing this far there will be updates and more levels")
+                    
+                  }
+                  
+                }
+                
+                background(220)
+                line (0,340,400,340);
+                rect(x,y,10,10)
+                line(200,moveY,220,moveY+10)
+                line(200,moveY,220,moveY-10)
+               
+              }
+            }
                if ( mouseIsPressed  ) {
        x=x+2;
     }
@@ -199,6 +267,7 @@ if(moveX > 390 & x> 100 & y > 380 || moveXtop > 270 & x > 100 & y < 360 ) { // d
   rect(x,390,10,10);
  
 }
+
 
 
 
