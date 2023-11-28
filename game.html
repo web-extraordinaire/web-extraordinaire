@@ -1,8 +1,3 @@
-<html>
-  <head>
-   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
-    <script src="functions.js"></script>
-<script>
 var is_ded = false;
 var moveY = 390;
 function ded() {
@@ -17,6 +12,9 @@ text("you ded", 0,100)
            }
   
 }
+
+
+
   var moveXtop = 200
   var moveX = 200
 var y = 390;
@@ -24,6 +22,11 @@ var x = 10;
 var level = 0;
 var moveX = 30;
 var moveY = 390;
+var shoot_enemy = false
+if( shoot_enemy === true) {
+  line(x+10,y+5,x+30,y+5)
+}
+
 function setup() {
   createCanvas(400, 400);
 }
@@ -50,6 +53,9 @@ function draw() {
     }
   
   background(220);
+if( shoot_enemy === true) {
+  line(x+10,y+5,x+30,y+5)
+}
   if(level === 0) {
       textSize(100)
    text("play",100,200) 
@@ -226,14 +232,16 @@ if (x>200 & x < 220 & y > (moveY - 10) & y < (moveY + 10) ) {
     }
   }
   if(level === 8) {
+    rect(x,y,10,10)
+    shoot_enemy =true;
+    textSize(32)
+    text("you got the sword of power",0,100)
+    if(x > 400) {
+      level = level + 1;
+      x = 10;
+    }
+  }
+  if(level === 9) {
     
   }
-  
-}
-  </script>
-  </head>
-  <body> </body>
-  </html>
-
-
 
