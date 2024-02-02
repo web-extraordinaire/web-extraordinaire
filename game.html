@@ -1,5 +1,8 @@
 var is_ded = false;
 var moveY = 390;
+
+
+
 function ded() {
                     background(220);
             textSize(100)
@@ -13,7 +16,8 @@ text("you ded", 0,100)
   
 }
 
-
+var enemy_x = 390
+var enemy_y = 390
 
   var moveXtop = 200
   var moveX = 200
@@ -28,21 +32,34 @@ if( shoot_enemy === true) {
 }
 
 function setup() {
+  
   createCanvas(400, 400);
 }
 
 function draw() {
+ 
+function heart(x) {
   
+    fill(255, 0, 0);
+arc(x,20,20,20,600,0);
+arc(x+21,20,20,20,600,0);
+line(x+10,45,x-10,18);
+line(x+10,45,x+30,18);
+}
+  if(enemy_x < x + 11 && enemy_y  )
+    {
+      line(0,0,40,40)
+    }
   
   if(is_ded === true) {
     ded();
  return;
   }
       if ( mouseIsPressed  ) {
-       x=x+4;
+       x=x+3;
     }
     if (mouseX < x) {
-      x=x-1;
+      x=x-2;
     }
   if (keyCode === UP_ARROW) {
   y = 350;
@@ -231,7 +248,11 @@ if (x>200 & x < 220 & y > (moveY - 10) & y < (moveY + 10) ) {
       level = level + 1
     }
   }
+  
   if(level === 8) {
+    heart(10);
+heart(50);
+heart(90);
     rect(x,y,10,10)
     shoot_enemy =true;
     textSize(32)
@@ -241,6 +262,21 @@ if (x>200 & x < 220 & y > (moveY - 10) & y < (moveY + 10) ) {
       x = 10;
     }
   }
+  
+  
+  if(level === 9) {
+  
+    enemy_x = enemy_x - 1
+       rect(enemy_x,enemy_y,10,10)
+    rect(enemy_x,enemy_y-40,10,10)
+
+    rect(x,y,10,10)
+    heart(10);
+heart(50);
+heart(90);
+  }
+
+}
   if(level === 9) {
     
   }
