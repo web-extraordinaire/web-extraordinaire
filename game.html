@@ -20,10 +20,13 @@ text("you ded", 0,100)
              y = 390;
            }
 }
+var enemy1_health = 2
+var enemy_x1 = 450
+var enemy_y1 = 390
 
-var enemy_x = 391
-var enemy_y = 390
-var enemy_ytop = 350
+var enemy_2x = 450
+var enemy_2y = 350
+var enemy2_health = 2
 var health = 3;
   var moveXtop = 200
   var moveX = 200
@@ -78,17 +81,38 @@ line(x+10,45,x+30,18);
   /*
   text("enemy x: " + enemy_x +", enemy_y: " + enemy_y + ", health: " + health + ", x: " + x + ", y:" + y, 0, 150)
   */
-    if(enemy_x > x && enemy_x < x + 10   && enemy_y === y && level > 8  || enemy_x > x && enemy_x < x + 10   && enemy_ytop === y && level > 8 )
+
+    if(enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level > 8  )
     {    
   
       x=x-50 
-      enemy_x = enemy_x + 50
+      enemy_x1 = enemy_x1 + 50
       health = health - 1
       
     }
+if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y ) 
+{
+        x=x-50 
+      enemy_2x = enemy_2x + 50
+      health = health - 1
+}
+  
+  if(enemy_x1 === x + 30 && enemy_y1 === y) {
+    enemy1_health = enemy1_health - 1
+  }
+ 
+  if(enemy_2x === x + 30 && y === enemy_2y && level > 8) {
+    enemy2_health = enemy2_health - 1
+  }
+  if(enemy2_health === 0) {
+    enemy_2x = 1397327487284
+  }
   if(health===2) {
     line(0,0,40,40)
 
+  }
+  if(enemy1_health === 0) {
+    enemy_x1 =346578346
   }
   if(health === 1) {
         line(0,0,40,40)
@@ -292,12 +316,12 @@ heart(90);
     }
   }
   
-  
   if(level === 9) {
     
-    enemy_x = enemy_x - 1
-       rect(enemy_x,enemy_y,10,10)
-    rect(enemy_x,enemy_ytop,10,10)
+    enemy_x1 = enemy_x1 - 1
+    enemy_2x = enemy_2x - 1    
+       rect(enemy_x1,enemy_y1,10,10)
+    rect(enemy_2x,enemy_2y,10,10)
 
     rect(x,y,10,10)
     heart(10);
