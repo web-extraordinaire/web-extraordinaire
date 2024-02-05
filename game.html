@@ -24,6 +24,14 @@ var enemy1_health = 2
 var enemy_x1 = 450
 var enemy_y1 = 390
 
+var enemy3_health = 4
+var enemy_3x = 450
+var enemy_3y = 390
+
+var enemy4_health = 4
+var enemy_4x = 450
+var enemy_4y = 350
+
 var enemy_2x = 450
 var enemy_2y = 350
 var enemy2_health = 2
@@ -78,11 +86,22 @@ line(x+10,45,x+30,18);
   
   background(220);
   textSize(15)
-  /*
-  text("enemy x: " + enemy_x +", enemy_y: " + enemy_y + ", health: " + health + ", x: " + x + ", y:" + y, 0, 150)
-  */
+  
+  text("enemy 3:" + enemy3_health + "enemy_4:" + enemy4_health ,200,200)
+  if(enemy_3x === x + 30 && level === 10 && y === 390) {
+    enemy3_health = enemy3_health - 1
+  }
+  if(enemy3_health === 0) {
+    enemy_3x = -389837
+  }
+    if(enemy_4x === x + 30 && level === 10 && y === 350) {
+    enemy4_health = enemy4_health - 1
+  }
+  if(enemy4_health === 0 && level === 10) {
+    enemy_4x = -38983725892
+  }
 
-    if(enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level > 8  )
+    if(enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level === 9  )
     {    
   
       x=x-50 
@@ -90,28 +109,28 @@ line(x+10,45,x+30,18);
       health = health - 1
       
     }
-if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y ) 
+if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y && level === 9 ) 
 {
         x=x-50 
       enemy_2x = enemy_2x + 50
       health = health - 1
 }
   
-  if(enemy_x1 === x + 30 && enemy_y1 === y) {
+  if(enemy_x1 === x + 30 && enemy_y1 === y && level === 9) {
     enemy1_health = enemy1_health - 1
   }
  
-  if(enemy_2x === x + 30 && y === enemy_2y && level > 8) {
+  if(enemy_2x === x + 30 && y === enemy_2y && level === 9) {
     enemy2_health = enemy2_health - 1
   }
-  if(enemy2_health === 0) {
+  if(enemy2_health === 0 && level === 9) {
     enemy_2x = 1397327487284
   }
   if(health===2) {
     line(0,0,40,40)
 
   }
-  if(enemy1_health === 0) {
+  if(enemy1_health === 0 && level === 9) {
     enemy_x1 =346578346
   }
   if(health === 1) {
@@ -327,8 +346,23 @@ heart(90);
     heart(10);
 heart(50);
 heart(90);
+    if(x > 400) {
+      level = level + 1
+      x = 10;
+    }
   }
+if(level === 10) {
+  rect(x,y,10,10)
+  enemy_3x = enemy_3x - 1
+  enemy_4x = enemy_3x - 1
+  text("these enemys have 4 health",100,150)
+  rect(enemy_3x,enemy_3y,10,10,100)
+  rect(enemy_4x,enemy_4y,10,10,100)
 
+  heart(10);
+  heart(50);
+heart(90);
+}
 }
 
 </script>
