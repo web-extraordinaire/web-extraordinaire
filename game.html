@@ -20,7 +20,10 @@ text("you ded", 0,100)
              y = 390;
            }
 }
+var boss_health = 20;
 
+var enemy1_moves = false
+var enemy_7moves = false
 var enemy5_health = 4
 var enemy_5x = 450
 var enemy_5y = 350
@@ -103,9 +106,14 @@ line(x+10,45,x+30,18);
     }
   
   background(220);
-  text("seconds" + s,100,100)
-  textSize(15)
 
+  
+  textSize(15)
+if(level === 12 && x > 300) {
+  x = x -50
+  health = health - 1
+  
+}
     if(enemy_5x < x + 10 && enemy_5x > x && y === enemy_5y&& level === 11 ) {
     x = x - 50
     health = health - 1;
@@ -114,7 +122,7 @@ line(x+10,45,x+30,18);
     x = x - 50
     health = health - 1;
   } 
-  if(enemy_7x < x + 10 && enemy_7x > x && y === enemy_7y&& level === 11) {
+  if(enemy_7x < x + 10 && enemy_7x > x && y === enemy_7y&& level === 11 ||enemy_7x < x + 10 && enemy_7x > x && y === enemy_7y&& level === 12) {
     x = x - 50
     health = health - 1;
   } 
@@ -126,12 +134,14 @@ line(x+10,45,x+30,18);
   if(enemy5_health === 0){
     enemy_5y = -30;
   }
+if(x+ 30 === 300 && level === 12) {
+  boss_health = boss_health - 1
+}
 
   if(enemy_5x === x + 30 && level === 11 && y === 350) {
     enemy5_health = enemy5_health - 1;
     
   }
-  text(enemy8_health,100,100)
     if(enemy6_health === 0){
     enemy_6y = -30;
   }
@@ -144,7 +154,7 @@ line(x+10,45,x+30,18);
     enemy_7y = -30;
   }
 
-  if(enemy_7x === x + 30 && level === 11 && y === 390) {
+  if(enemy_7x === x + 30 && level === 11 && y === 390||enemy_7x === x + 30 && level === 12 && y === 390) {
     enemy7_health = enemy7_health - 1;
     
   }
@@ -182,7 +192,7 @@ line(x+10,45,x+30,18);
   }
 
 
-    if(enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level === 9  )
+    if(enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level === 9 ||enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level === 12  )
     {    
   
       x=x-50 
@@ -195,7 +205,7 @@ if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y && level === 9 )
       health = health - 1
 }
   
-  if(enemy_x1 === x + 30 && enemy_y1 === y && level === 9) {
+  if(enemy_x1 === x + 30 && enemy_y1 === y && level === 9 || enemy_x1 === x + 30 && enemy_y1 === y && level === 12) {
     enemy1_health = enemy1_health - 1
   }
  
@@ -206,7 +216,7 @@ if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y && level === 9 )
     enemy_2x = 1397327487284
   }
 
-  if(enemy1_health === 0 && level === 9) {
+  if(enemy1_health === 0 && level === 9 || enemy1_health === 0 && level === 12) {
     enemy_x1 =346578346
   }
   // 
@@ -474,14 +484,39 @@ if(level === 12) {
   heart(10)
   heart(50)
   heart(90)
-  rect(x,y,10,10)
+  rect(x,390,10,10)
+  rect(enemy_7x,enemy_7y,10,10,100)
+  rect(enemy_x1,enemy_y1,10,10)
+  text("the boss has disabled your ability to jump!",60,100)
+  
   if(s === 2 || s === 12 || s === 22 || s === 32 || s === 42 || s === 52) {
-    enemy_1x = 400 
+    enemy_x1 = 400 
     enemy1_health = 2
-    text(s,100,100)
-      enemy_x1 = enemy_x1 - 1
-
+ enemy1_moves = true
   }
+    if(s === 7 || s === 17 || s === 27 || s === 37 || s === 47 || s === 57) {
+enemy_7moves = true
+      enemy_7y = 390
+      enemy_7x = 400;
+      enemy7_health = 4
+  }
+  if(enemy_7moves === true) {
+    enemy_7x = enemy_7x - 1
+  }
+  if(enemy1_moves === true) {
+    enemy_x1 = enemy_x1 - 1
+  }
+  if (boss_health === 0) {
+      background(220)
+      text("you win",100,100)
+    
+  }
+  text(boss_health,200,200)
+ellipse(350,350,100,100) ;
+line(330,340,340,350);
+line(356,340,340,350);
+ellipse(330,350,10,10);
+ellipse(349,350,10,10);
 }  
 }
 
