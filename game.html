@@ -4,18 +4,18 @@
     <script src="functions.js"></script>
 <script>
   
-  //const queryString = window.location.search;
-  //const urlParams = new URLSearchParams(queryString);
-  
 var is_ded = false;
 var moveY = 390;
-var lives = 5
-
-
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const lives = urlParams.get('lives')
 function ded() {
-  x = 0
+  x = 0;
   lives = lives - 1
-  if (lives === 0) {
+ if(lives === 0) {
+    is_ded = true;
+   lives = 5
+
                       background(220);
             textSize(100)
 text("you ded", 0,100)
@@ -25,8 +25,9 @@ text("you ded", 0,100)
              x = 10;
              y = 390;
            }
-  }
+  } 
 }
+
 var boss_health = 20;
 
 var enemy1_moves = false
@@ -67,7 +68,7 @@ var health = 3;
   var moveX = 200
 var y = 390;
 var x = 10;
-var level = 12;
+var level = 0;
 var moveX = 30;
 var moveY = 390;
 var shoot_enemy = false
@@ -113,7 +114,7 @@ line(x+10,45,x+30,18);
     }
   
   background(220);
-
+text(lives,100,100)
   
   textSize(15)
 if(level === 12 && x > 300) {
@@ -240,7 +241,6 @@ if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y && level === 9 )
   }
   if(health === 0) {
     ded()
-    level = 1;
         health = 3
 
   }
@@ -274,7 +274,7 @@ if( shoot_enemy === true) {
      line(200,400,210,380)
          line(220,400,210,380)
 if(x<220 & x > 200 & y > 380) {
-  is_ded = true;
+  ded();
   return;
 }
   if( x > 400) {
@@ -295,7 +295,7 @@ if(x<220 & x > 200 & y > 380) {
         line(200,400,210,380)
         line(220,400,210,380)
     if (x < 130 & x > 80 & y<360 || x>200 & x<210 & y > 380) {
-      is_ded = true
+      ded();
       return;
     }
     if(x > 400) {
@@ -321,11 +321,11 @@ if(x<220 & x > 200 & y > 380) {
               moveXtop= 100;
             }
     if(moveX > 390 & x> 100 & y > 380 || moveXtop > 270 & x > 100 & y < 360 ) {
-is_ded = true;
+ded();
     return;
     }
     if (x > moveX & x < (moveX + 20) & y > 380 || x > (moveXtop + 100) & x < (moveXtop + 120) & y < 360 ) {
-      is_ded = true;
+      ded();
     return;
     
     }
@@ -341,8 +341,8 @@ is_ded = true;
                   moveY = 330
                 }
    if (x>200 & x < 220 & y > (moveY - 10) & y < (moveY + 10) ) {
-     is_ded = true;
-     return;
+ded();
+return;
    }
     line (0,340,400,340);
                 rect(x,y,10,10)
@@ -363,11 +363,11 @@ is_ded = true;
                       moveXtop = 100;
                     }
     if(y<360 & x <moveXtop + 20 & x > moveXtop || y > 380 & x > moveX - 10 & x < moveX + 20) {
-      is_ded = true;
+ded();
       return;
     }
            if (moveX > 370 & x > 100 & y > 380 || moveXtop > 370 & x > 100 & y < 360) {
-             is_ded = true;
+ded();
              return;
            }
           line(moveX,400,moveX+10,380)
@@ -384,7 +384,7 @@ is_ded = true;
   }  
   if(level === 7) {
     if(y<360 & x <moveXtop + 20 & x > moveXtop || y > 380 & x > moveX - 10 & x < moveX + 20) {
-      is_ded = true; 
+ded();
       return;
     }
                             moveXtop = moveXtop + 3;
@@ -400,11 +400,11 @@ is_ded = true;
                       moveXtop = 100;
                     }
 if (x>200 & x < 220 & y > (moveY - 10) & y < (moveY + 10) ) {
-      is_ded = true
+ded();
   return;
     }
            if (moveX > 370 & x > 100 & y > 380 || moveXtop > 370 & x > 100 & y < 360) {
-             is_ded = true;
+ded();
              return;
            }
                             line(200,moveY,220,moveY+10)
@@ -526,6 +526,7 @@ ellipse(330,350,10,10);
 ellipse(349,350,10,10);
 }  
 }
+
 
 </script>
   </head>
