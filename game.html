@@ -3,13 +3,19 @@
     <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script> 
     <script src="functions.js"></script>
 <script>
+  
+  //const queryString = window.location.search;
+  //const urlParams = new URLSearchParams(queryString);
+  
 var is_ded = false;
 var moveY = 390;
-
+var lives = 5
 
 
 function ded() {
-
+  x = 0
+  lives = lives - 1
+  if (lives === 0) {
                       background(220);
             textSize(100)
 text("you ded", 0,100)
@@ -19,6 +25,7 @@ text("you ded", 0,100)
              x = 10;
              y = 390;
            }
+  }
 }
 var boss_health = 20;
 
