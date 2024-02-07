@@ -7,9 +7,10 @@
 var is_ded = false;
 var moveY = 390;
 const queryString = window.location.search;
+console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
 const lives = urlParams.get('lives')
-    console.log(queryString);
+console.log(product);
 function ded() {
   x = 0;
   lives = lives - 1
