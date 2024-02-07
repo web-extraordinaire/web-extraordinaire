@@ -20,6 +20,23 @@ text("you ded", 0,100)
              y = 390;
            }
 }
+
+var enemy5_health = 4
+var enemy_5x = 450
+var enemy_5y = 350
+
+var enemy6_health = 2
+var enemy_6x = 480
+var enemy_6y = 350
+
+var enemy7_health = 4
+var enemy_7x = 450
+var enemy_7y = 390
+
+var enemy8_health = 2
+var enemy_8x = 480
+var enemy_8y = 390
+
 var enemy1_health = 2
 var enemy_x1 = 450
 var enemy_y1 = 390
@@ -40,7 +57,7 @@ var health = 3;
   var moveX = 200
 var y = 390;
 var x = 10;
-var level = 8;
+var level = 12;
 var moveX = 30;
 var moveY = 390;
 var shoot_enemy = false
@@ -49,11 +66,12 @@ if( shoot_enemy === true) {
 }
 
 function setup() {
-  
+
   createCanvas(400, 400);
 }
 
 function draw() {
+var  s = second()
 
  
 function heart(x) {
@@ -85,34 +103,95 @@ line(x+10,45,x+30,18);
     }
   
   background(220);
+  text("seconds" + s,100,100)
   textSize(15)
-  
-  text("enemy 3:" + enemy3_health + "enemy_4:" + enemy4_health ,200,200)
+
+    if(enemy_5x < x + 10 && enemy_5x > x && y === enemy_5y&& level === 11 ) {
+    x = x - 50
+    health = health - 1;
+  }  
+  if(enemy_6x < x + 10 && enemy_6x > x && y === enemy_6y&& level === 11) {
+    x = x - 50
+    health = health - 1;
+  } 
+  if(enemy_7x < x + 10 && enemy_7x > x && y === enemy_7y&& level === 11) {
+    x = x - 50
+    health = health - 1;
+  } 
+  if(enemy_8x < x + 10 && enemy_8x > x && y === enemy_8y&& level === 11) {
+    x = x - 50
+    health = health - 1;
+  }
+     
+  if(enemy5_health === 0){
+    enemy_5y = -30;
+  }
+
+  if(enemy_5x === x + 30 && level === 11 && y === 350) {
+    enemy5_health = enemy5_health - 1;
+    
+  }
+  text(enemy8_health,100,100)
+    if(enemy6_health === 0){
+    enemy_6y = -30;
+  }
+
+  if(enemy_6x === x + 30 && level === 11 && y === 350) {
+    enemy6_health = enemy6_health - 1;
+    
+  }
+      if(enemy7_health === 0){
+    enemy_7y = -30;
+  }
+
+  if(enemy_7x === x + 30 && level === 11 && y === 390) {
+    enemy7_health = enemy7_health - 1;
+    
+  }
+      if(enemy8_health === 0){
+    enemy_8y = -30;
+  }
+
+  if(enemy_8x === x + 30 && level === 11 && y === 390) {
+    enemy8_health = enemy8_health - 1;
+    
+  }
+    if(enemy4_health === 0){
+    enemy_4y = -30;
+  }
+
+  if(enemy_4x === x + 30 && level === 10 && y === 350) {
+    enemy4_health = enemy4_health - 1;
+    
+  }
+      if(enemy3_health === 0){
+    enemy_3y = -30;
+  }
+
   if(enemy_3x === x + 30 && level === 10 && y === 390) {
-    enemy3_health = enemy3_health - 1
+    enemy3_health = enemy3_health - 1;
+    
   }
-  if(enemy3_health === 0) {
-    enemy_3x = -389837
+  if(enemy_3x < x + 10 && enemy_3x > x && y === enemy_3y && level === 10) {
+    x = x - 50
+    health = health - 1;
   }
-    if(enemy_4x === x + 30 && level === 10 && y === 350) {
-    enemy4_health = enemy4_health - 1
+    if(enemy_4x < x + 10 && enemy_4x > x && y === enemy_4y&& level === 10) {
+    health = health - 1;
+    x = x - 50
   }
-  if(enemy4_health === 0 && level === 10) {
-    enemy_4x = -38983725892
-  }
+
 
     if(enemy_x1 > x && enemy_x1 < x + 10   && enemy_y1 === y && level === 9  )
     {    
   
       x=x-50 
-      enemy_x1 = enemy_x1 + 50
       health = health - 1
       
     }
 if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y && level === 9 ) 
 {
         x=x-50 
-      enemy_2x = enemy_2x + 50
       health = health - 1
 }
   
@@ -126,12 +205,16 @@ if(enemy_2x>x && enemy_2x < x + 10 && y === enemy_2y && level === 9 )
   if(enemy2_health === 0 && level === 9) {
     enemy_2x = 1397327487284
   }
-  if(health===2) {
-    line(0,0,40,40)
 
-  }
   if(enemy1_health === 0 && level === 9) {
     enemy_x1 =346578346
+  }
+  // 
+  
+  //
+    if(health===2) {
+    line(0,0,40,40)
+
   }
   if(health === 1) {
         line(0,0,40,40)
@@ -359,10 +442,47 @@ if(level === 10) {
   rect(enemy_3x,enemy_3y,10,10,100)
   rect(enemy_4x,enemy_4y,10,10,100)
 
+  
   heart(10);
   heart(50);
 heart(90);
+  if(x > 400) {
+    x = 10;
+    level = level + 1;
+  }
 }
+  if(level === 11) {
+rect(enemy_5x,enemy_5y,10,10,100)
+rect(enemy_6x,enemy_6y,10,10)
+rect(enemy_7x,enemy_7y,10,10,100)
+rect(enemy_8x,enemy_8y,10,10)
+  enemy_5x=enemy_5x-1;
+    enemy_6x=enemy_6x-1;
+    enemy_7x=enemy_7x-1
+    enemy_8x=enemy_8x-1
+    heart(10)
+    heart(50)
+    heart(90)
+    rect(x,y,10,10)
+    if(x > 400) {
+      x = 10 
+      level = level + 1;
+      health = 3
+    }
+  }
+if(level === 12) {
+  heart(10)
+  heart(50)
+  heart(90)
+  rect(x,y,10,10)
+  if(s === 2 || s === 12 || s === 22 || s === 32 || s === 42 || s === 52) {
+    enemy_1x = 400 
+    enemy1_health = 2
+    text(s,100,100)
+      enemy_x1 = enemy_x1 - 1
+
+  }
+}  
 }
 
 </script>
