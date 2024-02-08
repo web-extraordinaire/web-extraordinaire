@@ -9,7 +9,7 @@ var moveY = 390;
 const queryString = window.location.search;
 console.log(queryString);
 const urlParams = new URLSearchParams(queryString);
-const lives = urlParams.get('lives')
+var lives = urlParams.get('lives')
 console.log(lives);
 function ded() {
   x = 0;
