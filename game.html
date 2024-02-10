@@ -14,6 +14,7 @@ console.log(lives);
 function ded() {
   x = 0;
   lives = lives - 1
+  boss_health = 20
  if(lives === 0) {
     is_ded = true;
                       background(220);
@@ -513,7 +514,7 @@ enemy_7moves = true
   if(enemy1_moves === true) {
     enemy_x1 = enemy_x1 - 1
   }
-  if (boss_health === 0) {
+  if (boss_health === 0 || boss_health < 0) {
       background(220)
       text("you win",100,100)
     
