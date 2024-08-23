@@ -5,7 +5,47 @@
 <script>
 
 
+  var modifier = 0
+var counter = 1000
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
   
+  var w = round(counter)
+  
+  background(80, 120, 200);
+  
+  fill(255,204,0);
+  ellipse(200,200,100,100);
+  fill(0,0,0);
+  text("DO NOT PRESS",155,205);
+  if(mouseIsPressed && mouseX > 150 && mouseX < 250 && mouseY > 150 && mouseY < 250 && modifier === 0) {
+    counter = counter + 0.01;
+  }
+  text(w,190,50)
+  rect(0,0,40,40)
+    if(mouseIsPressed && mouseY < 40 && mouseX < 40 && w >= 10) {
+       counter = counter - 10
+      modifier = modifier + 0.001
+     
+    }
+  fill(255,255,255)
+  rect(40,0,40,40)
+    if(mouseIsPressed && mouseX < 80 && w >= 50 && mouseY < 40 && mouseX > 40) {
+       counter = counter - 50
+      modifier = modifier + 0.01
+     
+    }
+  
+    if(mouseIsPressed && mouseX > 150 && mouseX < 250 && mouseY > 150 && mouseY < 250) {
+    counter = counter + 0.01 + modifier;
+      
+  }
+  
+}
   
   
 </script>
